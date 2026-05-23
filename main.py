@@ -3,26 +3,18 @@ from textblob import TextBlob
 from spellchecker import SpellChecker
 import re
 
-# =========================
-# SPELL CHECKER SETUP
-# =========================
+
 spell = SpellChecker()
 
-# =========================
-# PAGE SETTINGS
-# =========================
+
 st.set_page_config(
     page_title="Auto Correct Engine",
-    page_icon="🧠",
     layout="centered"
 )
 
-# =========================
-# PROJECT TITLE
-# =========================
-st.title("🎓 BHARATVERSITY INTERNSHIP PROJECT (DATA SCIENCE)")
+st.title("BHARATVERSITY INTERNSHIP PROJECT (DATA SCIENCE)")
 
-st.header("🔍 Auto-Correct Engine for Sentences/Paragraphs")
+st.header("Auto-Correct Engine for Sentences/Paragraphs")
 
 
 st.markdown("---")
@@ -32,13 +24,13 @@ st.write("Paste any sentence or paragraph below to automatically correct spellin
 
 
 text_input = st.text_area(
-    "✍️ Enter your text here:",
+    "Enter your text here:",
     height=250,
     placeholder="Example: She dont no how to writte proper English."
 )
 
 
-if st.button("✅ Correct Text"):
+if st.button("Correct Text"):
 
     if text_input.strip():
 
@@ -70,7 +62,7 @@ if st.button("✅ Correct Text"):
         final_text = str(blob.correct())
 
 
-        st.subheader("✅ Corrected Text")
+        st.subheader("Corrected Text")
 
         st.success(final_text)
 
@@ -78,7 +70,7 @@ if st.button("✅ Correct Text"):
 
         if mistakes:
 
-            st.subheader("⚠️ Misspelled Words Found")
+            st.subheader("Misspelled Words Found")
 
             shown = set()
 
@@ -88,10 +80,10 @@ if st.button("✅ Correct Text"):
 
                     shown.add(wrong)
 
-                    st.write(f"❌ {wrong}  →  ✅ {correct}")
+                    st.write(f" {wrong}  →   {correct}")
 
         else:
-            st.success("🎉 No spelling mistakes found!")
+            st.success(" No spelling mistakes found!")
 
     else:
-        st.warning("⚠️ Please enter some text.")
+        st.warning(" Please enter some text.")
